@@ -1,0 +1,8 @@
+[90m= [39m[34;4mApp\Models\Contact[39;24m {#6121
+    [34mfirst_name[39m: "[32mMiguel[39m",
+    [34mlast_name[39m: "[32mBonello[39m",
+    [34maddress[39m: "[32mThe Moon[39m",
+    [34memail[39m: "[32mmiguel.bonello.e21277@mcast.edu.mt[39m",
+    [34mphone[39m: "[32m12345678[39m",
+  }
+
