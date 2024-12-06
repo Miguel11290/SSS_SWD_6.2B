@@ -6,7 +6,7 @@
             <div class="input-group mb-3">
             <select class="custom-select">
                 <option value="" selected>All Companies</option>
-                @foreach($companies as $id => $company)
+                @foreach($companies as $id => $name)
                     <option {{$id == request('company_id ') ? 'selected' : ''}} value="{{$id}}">{{$name}}</option>
                 @endforeach
             </select>
