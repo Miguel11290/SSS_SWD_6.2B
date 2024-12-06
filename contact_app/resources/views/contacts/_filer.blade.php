@@ -7,7 +7,7 @@
             <select class="custom-select">
                 <option value="" selected>All Companies</option>
                 @foreach($companies as $id => $company)
-                    <option value="{{$id}}">{{$name}}</option>
+                    <option {{$id == request('company_id ') ? 'selected' : ''}} value="{{$id}}">{{$name}}</option>
                 @endforeach
             </select>
             </div>

@@ -10,8 +10,13 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $companies = Company::orderBy('name')->pluck('name', 'id');
-        $contacts = Contact::orderBy('first_name')->get();
+        $companies = Company::orderBy('name')->pluck('name', 'id')->prepend('All Companies', '');
+        //$contacts = Contact::orderBy('first_name')->get();
+        if(request('company_id') == null) {
+            $contacts = Contact::orderBy('first_name')->get();
+        } else {
+            $contacts = Contact::where('company_id', request('company_id'))->orderBy('first_name')->get();
+        }
         return view('contacts.index', compact('contact', 'companies'));
     }
 
