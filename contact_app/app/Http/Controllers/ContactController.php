@@ -26,6 +26,14 @@ class ContactController extends Controller
         return view('contacts.create', compact('companies'));
     }
 
+    public function store(Request $request){
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email'
+        ]);
+    }
+
     public function show($id)
     {
         $contact = Contact::find($id);
