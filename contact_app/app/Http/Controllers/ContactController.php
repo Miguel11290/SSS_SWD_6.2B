@@ -30,8 +30,12 @@ class ContactController extends Controller
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required|email'
+            'email' => 'required|email',
+            'address' => 'required',
+            'company_id' => 'required|exists:companies,id'
         ]);
+
+        dd($request->all());
     }
 
     public function show($id)

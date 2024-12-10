@@ -3,25 +3,38 @@
       <div class="form-group row">
         <label for="first_name" class="col-md-3 col-form-label">First Name</label>
         <div class="col-md-9">
-          <input type="text" name="first_name" id="first_name" class="form-control is-invalid">
+          <input type="text" name="first_name" id="first_name" value="{{old('first_name')}}" class="form-control @error('first_name') is-invalid @enderror">
+
+          @error('first_name')
           <div class="invalid-feedback">
-            Please choose a username.
+            {{ $message }}
           </div>
+          @enderror
         </div>
       </div>
 
       <div class="form-group row">
         <label for="last_name" class="col-md-3 col-form-label">Last Name</label>
         <div class="col-md-9">
-          <input type="text" name="last_name" id="last_name" class="form-control">
-        </div>
+          <input type="text" name="last_name" id="last_name" class="form-control @error('last_name') is-invalid @enderror">
+
+          @error('last_name')
+          <div class="invalid-feedback">
+            {{ $message }}
+          </div>
+          @enderror
       </div>
 
       <div class="form-group row">
         <label for="email" class="col-md-3 col-form-label">Email</label>
         <div class="col-md-9">
-          <input type="text" name="email" id="email" class="form-control">
-        </div>
+          <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror">
+
+          @error('email')
+          <div class="invalid-feedback">
+            {{ $message }}
+          @enderror
+          </div>
       </div>
 
       <div class="form-group row">
@@ -34,18 +47,29 @@
       <div class="form-group row">
         <label for="name" class="col-md-3 col-form-label">Address</label>
         <div class="col-md-9">
-          <textarea name="address" id="address" rows="3" class="form-control"></textarea>
-        </div>
+          <textarea name="address" id="address" rows="3" class="form-control @error('address') is-invalid @enderror"></textarea>
+
+          @error('address')
+          <div class="invalid-feedback">
+            {{ $message }}
+          </div>
+          @enderror
       </div>
       <div class="form-group row">
         <label for="company_id" class="col-md-3 col-form-label">Company</label>
         <div class="col-md-9">
-          <select name="company_id" id="company_id" class="form-control">
-            <option value="">Select Company</option>
+          <select name="company_id" id="company_id" class="form-control @error('company_id') is-invalid @enderror">
+            <option {{$id == old('company_id') ? 'selected' : ""}} value="{{$id}}">{{$name}}</option>
             @foreach($companies as $id => $name)
                 <option value="{{$id}}">{{$name}}</option>
             @endforeach
           </select>
+
+            @error('company_id')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
         </div>
       </div>
       <hr>
