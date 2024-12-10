@@ -10,6 +10,7 @@
                 <strong>Add New Contact</strong>
               </div>           
               <div class="card-body">
+                <form action={{route('contacts.store')}} method='POST'></form>
                 @include('contacts._form')
               </div>
             </div>

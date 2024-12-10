@@ -22,4 +22,7 @@ Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.ind
 
 Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');
 
+//This route will take a post request from the html form (to create a new contact)
+Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
+
 Route::get('/contacts/{id}', [ContactController::class, 'show'])->name('contacts.show');
